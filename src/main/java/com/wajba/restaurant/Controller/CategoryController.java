@@ -4,6 +4,7 @@ import com.wajba.restaurant.Dtos.AllCategoryDtoResponses;
 import com.wajba.restaurant.Dtos.CategoryDtoRequest;
 import com.wajba.restaurant.Dtos.CategoryDtoResponse;
 import com.wajba.restaurant.Interfaces.CreateValidationGroup;
+import com.wajba.restaurant.Interfaces.ICategory;
 import com.wajba.restaurant.Service.CategoriesService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -29,7 +30,7 @@ import java.io.IOException;
 @Tag(name = "Categories", description = "APIs for managing restaurant categories and their menu items")
 public class CategoryController
 {
-    private final CategoriesService categoryService;
+    private final ICategory categoryService;
 
     @Value("${app.pagination.default-page}")
     private int defaultPage;
@@ -40,7 +41,7 @@ public class CategoryController
     @Value("${app.pagination.max-size}")
     private int maxSize;
 
-    public CategoryController(CategoriesService categoryService)
+    public CategoryController(ICategory categoryService)
     {
         this.categoryService = categoryService;
     }

@@ -3,6 +3,7 @@ package com.wajba.restaurant.Controller;
 import com.wajba.restaurant.Dtos.MenuItemDtoRequest;
 import com.wajba.restaurant.Dtos.MenuItemDtoResponse;
 import com.wajba.restaurant.Interfaces.CreateValidationGroup;
+import com.wajba.restaurant.Interfaces.IMenuItem;
 import com.wajba.restaurant.Service.MenuItemService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -30,7 +31,7 @@ import java.util.List;
 @Tag(name = "Menu Items", description = "APIs for managing restaurant menu items with pricing, modifiers, and availability")
 public class MenuItemController
 {
-    private final MenuItemService menuItemService;
+    private final IMenuItem menuItemService;
 
     @Value("${app.pagination.default-page}")
     private int defaultPage;
@@ -41,7 +42,7 @@ public class MenuItemController
     @Value("${app.pagination.max-size}")
     private int maxSize;
 
-    public MenuItemController(MenuItemService menuItemService)
+    public MenuItemController(IMenuItem menuItemService)
     {
         this.menuItemService = menuItemService;
     }

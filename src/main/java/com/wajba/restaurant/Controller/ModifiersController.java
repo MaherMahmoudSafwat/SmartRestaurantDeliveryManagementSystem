@@ -3,6 +3,7 @@ package com.wajba.restaurant.Controller;
 import com.wajba.restaurant.Dtos.ModifierDtoRequest;
 import com.wajba.restaurant.Dtos.ModifierDtoResponse;
 import com.wajba.restaurant.Interfaces.CreateValidationGroup;
+import com.wajba.restaurant.Interfaces.IModifiers;
 import com.wajba.restaurant.Service.ModifiersService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -29,7 +30,7 @@ import java.math.BigDecimal;
 @Tag(name = "Modifiers", description = "APIs for managing menu item modifiers with pricing and availability")
 public class ModifiersController
 {
-    private final ModifiersService modifiersService;
+    private final IModifiers modifiersService;
 
     @Value("${app.pagination.default-page}")
     private int defaultPage;
@@ -40,7 +41,7 @@ public class ModifiersController
     @Value("${app.pagination.max-size}")
     private int maxSize;
 
-    public ModifiersController(ModifiersService modifiersService)
+    public ModifiersController(IModifiers modifiersService)
     {
         this.modifiersService = modifiersService;
     }
